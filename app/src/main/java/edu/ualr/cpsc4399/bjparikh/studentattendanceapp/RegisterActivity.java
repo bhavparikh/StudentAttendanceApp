@@ -38,20 +38,26 @@ public class RegisterActivity extends AppCompatActivity {
                         pass1.matches("") || pass2.matches("")){
                     Toast.makeText(RegisterActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
                 } else {
+
                     if(!pass1.equals(pass2)){
                         //popup msg
                         Toast.makeText(RegisterActivity.this, "Passwords don't match", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
-                        Credentials credentials = new Credentials();
-                        credentials.setName(name);
-                        credentials.setPassw(pass1);
-                        credentials.setEmail(email);
-                        credentials.setUname(username);
+                        if(databaseHelper.unameExists(username)){
+                            Toast.makeText(RegisterActivity.this, "Username already exists", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
+                            Credentials credentials = new Credentials();
+                            credentials.setName(name);
+                            credentials.setPassw(pass1);
+                            credentials.setEmail(email);
+                            credentials.setUname(username);
 
-                        databaseHelper.insertCredentials(credentials);
-                        Intent loginIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                        RegisterActivity.this.startActivity(loginIntent);
+                            databaseHelper.insertCredentials(credentials);
+                            Intent loginIntent = new Intent(RegisterActivity.this, MainActivity.class);
+                            RegisterActivity.this.startActivity(loginIntent);
+                        }
+
                     }
                 }
 

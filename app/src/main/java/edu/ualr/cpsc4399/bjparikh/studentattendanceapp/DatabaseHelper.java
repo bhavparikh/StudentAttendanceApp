@@ -41,6 +41,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.close();
     }
 
+    public boolean unameExists(String uname){
+        database = this.getReadableDatabase();
+        String query = "select Uname from " + TABLE_NAME;
+        Cursor cursor = database.rawQuery(query, null);
+        String a;
+        if(cursor.moveToFirst()){
+            do{
+                a = cursor.getString(0);
+                if (a.equals(uname)){
+                    return true;
+                }
+            }while(cursor.moveToNext());
+        }
+        return false;
+    }
+
     public String searchPass(String uname){
         database = this.getReadableDatabase();
         String query = "select Uname, Pass from " + TABLE_NAME;
