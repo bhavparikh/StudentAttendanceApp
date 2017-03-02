@@ -1,0 +1,54 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.ualr.cpsc4399.bjparikh.studentattendanceapp.AddClass_Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="Add Class"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/textView"
+        android:layout_marginTop="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_marginTop="66dp"
+        android:id="@+id/editText2"
+        android:hint="class Id"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="43dp"
+        android:id="@+id/editText3"
+        android:hint="class Name"
+        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:textAlignment="center" />
+
+    <Button
+        android:text="Add Cass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:id="@+id/button2"
+        android:layout_below="@+id/editText3"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
